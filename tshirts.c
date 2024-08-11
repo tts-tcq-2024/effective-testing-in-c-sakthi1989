@@ -14,9 +14,13 @@ char size(int cms) {
 }
 
 int main() {
-    assert(size(37) == 'S');
-    assert(size(40) == 'M');
-    assert(size(43) == 'L');
+    assert(size(37) == 'S');  // S: below 38
+    assert(size(38) == 'M');  // M: at the lower boundary of M
+    assert(size(40) == 'M');  // M: within the range
+    assert(size(42) == 'L');  // L: at the boundary of L
+    assert(size(43) == 'L');  // L: above the boundary of L
+    assert(size(39) == 'M');  // M: another value in the M range
+    assert(size(36) == 'S');  // S: another value in the S range
     printf("All is well (maybe!)\n");
     return 0;
 }
